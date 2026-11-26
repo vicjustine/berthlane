@@ -1,0 +1,42 @@
+name: selective tests
+
+on:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      services: ${{ steps.pick.outputs.services }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 2
+
+      - name: Pick the changed services
+        id: pick 
+        run: |
+          CHANGED=$(git diff --name-only HEAD~1 HEAD)
+          echo "changed files:"
+          echo "$CHANGED"
+
+          PICKED=""
+          for S in gatein yardmap railout; do
+            if echo "$CHANGED" | grep -q "^services/$S/"; then
+              PICKED="$PICKED\"$S\","
+            fi
+          done
+
+          if [ -n "$PICKED" ]; then
+            SERVICES="[${PICKED%,}]"
+          else
+            SERVICES="[]"
+          fi
+
+          echo "computed matrix: $SERVICES"
+          echo "services=$SERVICES" >> "$GITHUB_OUTPUT"
