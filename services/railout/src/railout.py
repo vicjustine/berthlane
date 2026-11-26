@@ -1,6 +1,6 @@
 """Rail departure planning: wagons needed for a set of containers."""
 
-TEU_PER_WAGON = 4
+TEU_PER_WAGON = 2
 
 
 def wagons_needed(teu: int) -> int:
