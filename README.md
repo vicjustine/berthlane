@@ -19,3 +19,7 @@ pytest services/gatein/tests -q
 pytest services/yardmap/tests -q
 pytest services/railout/tests -q
 ```
+
+
+##
+Twelve tests across three services that share no code. As of right now any changes would run all twelve. By the end of the hour a push that touches one service will run only that service's test, and I will be able to show the others were never even scheduled.
