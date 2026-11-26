@@ -1,6 +1,6 @@
 """Yard slot allocation within a block."""
 
-BLOCK_ROWS, BLOCK_TIERS = 20, 3
+BLOCK_ROWS, BLOCK_TIERS = 20, 4
 
 
 def slots_in_block() -> int:
