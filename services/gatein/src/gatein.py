@@ -1,6 +1,7 @@
-"""Truck gate-in: assigns an arriving truck to a queue lane."""
+"""Truck gate-in: assigns an arriving truck to a queue lane. """
+""" Will add an overflow lane """
 
-LANES = {"A": 12, "B": 12, "C": 8}
+LANES = {"A": 12, "B": 12, "C": 8, "D": 6}
 
 
 def lane_for(truck_class: str, occupancy: dict) -> str:
