@@ -23,3 +23,7 @@ pytest services/railout/tests -q
 
 ##
 Twelve tests across three services that share no code. As of right now any changes would run all twelve. By the end of the hour a push that touches one service will run only that service's test, and I will be able to show the others were never even scheduled.
+
+
+## 
+Update on the work. The test shows twenty rows by five tiers which is a hundred slots, and the test still expects eighty. The failure names the exact value, so the test is pinning real behaviour rather than just existing
