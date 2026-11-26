@@ -27,3 +27,6 @@ Twelve tests across three services that share no code. As of right now any chang
 
 ## 
 Update on the work. The test shows twenty rows by five tiers which is a hundred slots, and the test still expects eighty. The failure names the exact value, so the test is pinning real behaviour rather than just existing
+
+## 
+Four restored tests ran, not 12, even putting things back only costs the work the change actually implies. 
